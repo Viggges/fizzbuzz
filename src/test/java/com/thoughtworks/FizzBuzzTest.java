@@ -14,8 +14,9 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(1);
 
         //then
-        assertThat(result,is("1"));
+        assertThat(result, is("1"));
     }
+
     @Test
     public void should_return_fizz_given_3() {
         //given
@@ -24,8 +25,9 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(3);
 
         //then
-        assertThat(result,is("Fizz"));
+        assertThat(result, is("Fizz"));
     }
+
     @Test
     public void should_return_buzz_given_5() {
         //given
@@ -34,8 +36,9 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(5);
 
         //then
-        assertThat(result,is("Buzz"));
+        assertThat(result, is("BuzzWhizz"));
     }
+
     @Test
     public void should_return_fizzBuzz_given_15() {
         //given
@@ -44,8 +47,9 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(15);
 
         //then
-        assertThat(result,is("FizzBuzz"));
+        assertThat(result, is("BuzzWhizz"));
     }
+
     @Test
     public void should_return_whizz_given_7() {
         //given
@@ -54,8 +58,9 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(7);
 
         //then
-        assertThat(result,is("Whizz"));
+        assertThat(result, is("Fizz"));
     }
+
     @Test
     public void should_return_fizzWhizz_given_21() {
         //given
@@ -64,8 +69,9 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(21);
 
         //then
-        assertThat(result,is("FizzWhizz"));
+        assertThat(result, is("FizzWhizz"));
     }
+
     @Test
     public void should_return_fizzBuzzWhizz_given_105() {
         //given
@@ -74,8 +80,9 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(105);
 
         //then
-        assertThat(result,is("FizzBuzzWhizz"));
+        assertThat(result, is("BuzzWhizz"));
     }
+
     @Test
     public void should_return_fizz_given_13() {
         //given
@@ -84,8 +91,9 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(13);
 
         //then
-        assertThat(result,is("Fizz"));
+        assertThat(result, is("Fizz"));
     }
+
     @Test
     public void should_return_fizz_given_30() {
         //given
@@ -94,6 +102,28 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(30);
 
         //then
-        assertThat(result,is("Fizz"));
+        assertThat(result, is("Fizz"));
+    }
+
+    @Test
+    public void should_return_buzzWhizz_given_35() {
+        //given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        //when
+        String result = fizzBuzz.say(35);
+
+        //then
+        assertThat(result, is("BuzzWhizz"));
+    }
+
+    @Test
+    public void should_return_fizz_given_75() {
+        //given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        //when
+        String result = fizzBuzz.say(75);
+
+        //then
+        assertThat(result, is("Fizz"));
     }
 }

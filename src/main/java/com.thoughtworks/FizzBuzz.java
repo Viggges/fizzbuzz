@@ -9,10 +9,15 @@ package com.thoughtworks;
 public class FizzBuzz {
 
     public String say(int number) {
-        boolean contain3 = String.valueOf(number).contains("3");
         StringBuilder result = new StringBuilder();
 
-        if (contain3) {
+        if (isContains(number, "7")) {
+            return "Fizz";
+        }
+        if (isContains(number, "5")) {
+            return "BuzzWhizz";
+        }
+        if (isContains(number, "3")) {
             return "Fizz";
         }
 
@@ -31,6 +36,10 @@ public class FizzBuzz {
         }
 
         return result.toString();
+    }
+
+    private boolean isContains(int number, String containor) {
+        return String.valueOf(number).contains(containor);
     }
 
     private boolean isDividedByDivisor(int number, int divisor) {
