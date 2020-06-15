@@ -77,7 +77,7 @@ public class FizzBuzzTest {
         assertThat(result,is("FizzBuzzWhizz"));
     }
     @Test
-    public void should_return_fizzBuzzWhizz_given_13() {
+    public void should_return_fizz_given_13() {
         //given
         FizzBuzz fizzBuzz = new FizzBuzz();
         //when
@@ -87,7 +87,7 @@ public class FizzBuzzTest {
         assertThat(result,is("Fizz"));
     }
     @Test
-    public void should_return_fizzBuzzWhizz_given_30() {
+    public void should_return_fizz_given_30() {
         //given
         FizzBuzz fizzBuzz = new FizzBuzz();
         //when
