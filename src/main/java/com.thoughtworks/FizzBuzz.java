@@ -9,27 +9,27 @@ package com.thoughtworks;
 public class FizzBuzz {
 
     public String say(int number) {
-        boolean isDividedBy3 = number % 3 == 0;
-        boolean isDividedBy5 = number % 5 == 0;
-        boolean isDividedBy7 = number % 7 == 0;
         boolean contain3 = String.valueOf(number).contains("3");
         StringBuilder result = new StringBuilder();
         if(contain3){
             return "Fizz";
         }
-        if (isDividedBy3) {
+        if (isDividedByNumber(number, 3)) {
             result.append("Fizz");
         }
-        if (isDividedBy5) {
+        if (isDividedByNumber(number, 5)) {
             result.append("Buzz");
         }
-        if (isDividedBy7) {
+        if (isDividedByNumber(number, 7)) {
             result.append("Whizz");
         }
         if("".equals(result.toString())){
             return String.valueOf(number);
         }
-
         return result.toString();
+    }
+
+    private boolean isDividedByNumber(int number, int divisor) {
+        return number % divisor == 0;
     }
 }
