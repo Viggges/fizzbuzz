@@ -8,35 +8,16 @@ package com.thoughtworks;
  */
 public class FizzBuzz {
 
-    public String say(int i) {
-        boolean isDividedBy3 = i % 3 == 0;
-        boolean isDividedBy5 = i % 5 == 0;
-        boolean isDividedBy7 = i % 7 == 0;
-//        if (isDividedBy3 && isDividedBy5 && isDividedBy7) {
-//            return "FizzBuzzWhizz";
-//        }
-//        if (isDividedBy3 && isDividedBy7) {
-//            return "FizzWhizz";
-//        }
-//        if (isDividedBy3 && isDividedBy5) {
-//            return "FizzBuzz";
-//        }
-//
-//        if (isDividedBy3) {
-//            return "Fizz";
-//        }
-//        if (isDividedBy5) {
-//            return "Buzz";
-//        }
-//        if (isDividedBy7) {
-//            return "Whizz";
-//        }
-//        return String.valueOf(i);
+    public String say(int number) {
+        boolean isDividedBy3 = number % 3 == 0;
+        boolean isDividedBy5 = number % 5 == 0;
+        boolean isDividedBy7 = number % 7 == 0;
+        boolean contain3 = String.valueOf(number).contains("3");
         StringBuilder result = new StringBuilder();
-        if(!(isDividedBy3||isDividedBy5||isDividedBy7)){
-            return String.valueOf(i);
+        if (!(isDividedBy3 || isDividedBy5 || isDividedBy7)) {
+            return String.valueOf(number);
         }
-        if (isDividedBy3) {
+        if (isDividedBy3 || contain3) {
             result.append("Fizz");
         }
         if (isDividedBy5) {
@@ -47,5 +28,4 @@ public class FizzBuzz {
         }
         return result.toString();
     }
-
 }
