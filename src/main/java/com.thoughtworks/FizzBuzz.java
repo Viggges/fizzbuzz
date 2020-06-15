@@ -14,13 +14,13 @@ public class FizzBuzz {
         if(contain3){
             return "Fizz";
         }
-        if (isDividedByNumber(number, 3)) {
+        if (isDividedByDivisor(number, 3)) {
             result.append("Fizz");
         }
-        if (isDividedByNumber(number, 5)) {
+        if (isDividedByDivisor(number, 5)) {
             result.append("Buzz");
         }
-        if (isDividedByNumber(number, 7)) {
+        if (isDividedByDivisor(number, 7)) {
             result.append("Whizz");
         }
         if("".equals(result.toString())){
@@ -29,7 +29,7 @@ public class FizzBuzz {
         return result.toString();
     }
 
-    private boolean isDividedByNumber(int number, int divisor) {
+    private boolean isDividedByDivisor(int number, int divisor) {
         return number % divisor == 0;
     }
 }
