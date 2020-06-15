@@ -3,7 +3,6 @@ package com.thoughtworks;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class FizzBuzzTest {
@@ -36,5 +35,15 @@ public class FizzBuzzTest {
 
         //then
         assertThat(result,is("Buzz"));
+    }
+    @Test
+    public void should_return_fizzBuzz_given_15() {
+        //given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        //when
+        String result = fizzBuzz.say(15);
+
+        //then
+        assertThat(result,is("FizzBuzz"));
     }
 }
