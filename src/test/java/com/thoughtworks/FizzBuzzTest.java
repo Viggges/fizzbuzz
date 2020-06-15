@@ -8,16 +8,13 @@ import static org.junit.Assert.assertThat;
 
 public class FizzBuzzTest {
     @Test
-    public void hello_world_test() {
+    public void should_return_1_given_1() {
         //given
-        Dependency dependency = new Dependency();
-        HelloWorld helloWorld = new HelloWorld(dependency);
-
+        FizzBuzz fizzBuzz = new FizzBuzz();
         //when
-        String actual = helloWorld.beenCalled();
+        String result = fizzBuzz.say(1);
 
         //then
-        assertEquals(actual,"Leave me alone.");
-        assertThat(actual,is("1"));
+        assertThat(result,is("1"));
     }
 }
