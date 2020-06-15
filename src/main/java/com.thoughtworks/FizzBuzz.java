@@ -12,12 +12,16 @@ public class FizzBuzz {
         boolean isDividedBy3 = i % 3 == 0;
         boolean isDividedBy5 = i % 5 == 0;
         boolean isDividedBy7 = i % 7 == 0;
+        if (isDividedBy3 && isDividedBy5 && isDividedBy7) {
+            return "FizzBuzzWhizz";
+        }
         if (isDividedBy3 && isDividedBy7) {
             return "FizzWhizz";
         }
         if (isDividedBy3 && isDividedBy5) {
             return "FizzBuzz";
         }
+
         if (isDividedBy3) {
             return "Fizz";
         }
