@@ -14,7 +14,10 @@ public class FizzBuzz {
         boolean isDividedBy7 = number % 7 == 0;
         boolean contain3 = String.valueOf(number).contains("3");
         StringBuilder result = new StringBuilder();
-        if (isDividedBy3 || contain3) {
+        if(contain3){
+            return "Fizz";
+        }
+        if (isDividedBy3) {
             result.append("Fizz");
         }
         if (isDividedBy5) {
@@ -26,6 +29,7 @@ public class FizzBuzz {
         if("".equals(result.toString())){
             return String.valueOf(number);
         }
+
         return result.toString();
     }
 }
