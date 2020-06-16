@@ -135,4 +135,14 @@ public class FizzBuzzTest {
         //then
         //assertThat(result, is("Fizz"));
     }
+    @Test
+    public void should_return_fizz_given_53() {
+        //given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        //when
+        String result = fizzBuzz.say(75);
+
+        //then
+        assertThat(result, is("Fizz"));
+    }
 }

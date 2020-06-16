@@ -3,8 +3,10 @@ package com.thoughtworks;
 public class MarsRover {
 
     int[][] dir = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    String direction = "NESW";
-    String order = "MLR";
+    final static String direction = "NESW";
+    final static String MOVE = "M";
+    final static String LEFT = "L";
+    final static String RIGHT = "R";
     int x, y;
     int orientation;
 
@@ -22,18 +24,18 @@ public class MarsRover {
         int nowIndex = 0;
         while (moveOrder.length() > nowIndex) {
             char nowOrder = moveOrder.charAt(nowIndex);
-            if (order.indexOf(nowOrder) == 0) {
+            if (MOVE.equals(String.valueOf(nowOrder))) {
                 move();
             }
-            if (order.indexOf(nowOrder) == 1) {
+            if (LEFT.equals(String.valueOf(nowOrder))) {
                 turnLeft();
             }
-            if (order.indexOf(nowOrder) == 2) {
+            if (RIGHT.equals(String.valueOf(nowOrder))) {
                 turnRight();
             }
             nowIndex++;
         }
-        return "(" + x + "," + y + ")" + direction.charAt(orientation);
+        return "(" + this.x + "," + this.y + ")" + direction.charAt(orientation);
     }
 
     private void turnLeft() {
