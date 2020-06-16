@@ -3,17 +3,26 @@ package com.thoughtworks;
 public class MarsRover {
 
     int[][] dir = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    final static String direction = "NESW";
+
+    enum Direction {
+        N, E, S, W
+    }
+
+    Direction[] endDirection = Direction.values();
     final static String MOVE = "M";
     final static String LEFT = "L";
     final static String RIGHT = "R";
-    int x, y;
     int orientation;
+    MarsRoverPosition marsRoverPosition;
+    SafeZone safeZone;
 
-    public void init(int x, int y, String direct) {
-        this.x = x;
-        this.y = y;
-        this.orientation = direction.indexOf(direct);
+    public void initPosition(int x, int y, String direct) {
+        marsRoverPosition = new MarsRoverPosition(x, y, direct);
+        this.orientation = Direction.valueOf(direct).ordinal();
+    }
+
+    public void initSafeZone(int length, int width) {
+        safeZone = new SafeZone(length, width);
     }
 
     public String parse(String moveOrder) {
@@ -25,7 +34,9 @@ public class MarsRover {
         while (moveOrder.length() > nowIndex) {
             char nowOrder = moveOrder.charAt(nowIndex);
             if (MOVE.equals(String.valueOf(nowOrder))) {
-                move();
+                if (!move()) {
+                    break;
+                }
             }
             if (LEFT.equals(String.valueOf(nowOrder))) {
                 turnLeft();
@@ -35,7 +46,9 @@ public class MarsRover {
             }
             nowIndex++;
         }
-        return "(" + this.x + "," + this.y + ")" + direction.charAt(orientation);
+        Direction[] endDirection = Direction.values();
+        marsRoverPosition.setOrientation(endDirection[orientation].name());
+        return "(" + marsRoverPosition.getX() + "," + marsRoverPosition.getY() + ")" + marsRoverPosition.getOrientation();
     }
 
     private void turnLeft() {
@@ -46,9 +59,20 @@ public class MarsRover {
         orientation = (orientation + 1) % 4;
     }
 
-    public void move() {
-        this.x += dir[orientation][0];
-        this.y += dir[orientation][1];
+    private boolean move() {
+        if (checkSafe()) {
+            marsRoverPosition.setX(marsRoverPosition.getX() + dir[orientation][0]);
+            marsRoverPosition.setY(marsRoverPosition.getY() + dir[orientation][1]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean checkSafe() {
+        int soonX = marsRoverPosition.getX() + dir[orientation][0];
+        int soonY = marsRoverPosition.getY() + dir[orientation][1];
+        return safeZone.getWidth() >= Math.abs(soonX) && safeZone.getLength() >= Math.abs(soonY);
     }
 
     public String format(String result) {
